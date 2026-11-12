@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7655d9">
+  <meta name="description" content="Dein buntes Glücksrad: Namen auslosen, zufällige Paare finden und faire Teams bilden. Kostenlos und direkt im Browser.">
+  <title>Glücksrad — Lass den Zufall entscheiden.</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2219%22%20fill%3D%22%237655d9%22/%3E%3Cpath%20d%3D%22m32%2010%206%2016%2016%206-16%206-6%2016-6-16-16-6%2016-6Z%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E%0A">
+  <style>@font-face{font-family:Inter;src:local('Inter'),local('Inter Regular');font-display:swap}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:25px}body{margin:0;background:#fcfbfe;color:#28243b;font-family:Inter,'Avenir Next',Avenir,'Segoe UI',sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button,a,input,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default;opacity:.48}a{color:inherit;text-decoration:none}button{color:inherit}button,textarea,input{outline:none}button:focus-visible,a:focus-visible{outline:3px solid #ac93fa;outline-offset:4px}textarea:focus-visible{box-shadow:inset 0 0 0 2px #b8a1f1}input:focus-visible{outline:3px solid #ac93fa;outline-offset:4px}[hidden]{display:none!important}.wrap{width:min(1220px,calc(100% - 80px));margin-inline:auto}.icon-library{position:absolute;width:0;height:0;overflow:hidden}.icon{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.site-header{display:flex;align-items:center;justify-content:space-between;height:100px;border-bottom:1px solid #eeebf2}.brand{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800;letter-spacing:-1px}.brand-icon{display:grid;place-items:center;width:37px;height:39px;background:#7956db;border-radius:12px;transform:rotate(-9deg);box-shadow:0 3px 0 #5d3eb8}.brand-icon svg{width:26px;height:26px;fill:#fff;transform:rotate(9deg)}.brand-dot{color:#8865db}.site-header nav{display:flex;gap:35px;margin-left:35px}.nav-link{font-size:13px;color:#8b859b;position:relative;padding:15px 0}.nav-link:hover,.nav-link.active{color:#6348aa}.nav-link.active{font-weight:650}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #e8e3f1;border-radius:10px;padding:12px 16px;background:#fff;font-weight:600;font-size:12px;transition:background .18s,transform .18s,box-shadow .18s}.button:hover:not(:disabled){background:#f4f0fc;transform:translateY(-1px)}.header-settings{font-size:12px;padding:11px 16px;color:#5d556c;box-shadow:0 2px 3px #28243b03}.header-settings .icon{width:17px;height:17px}.hero{text-align:center;padding-top:43px}.eyebrow{color:#8b79b0;font-size:10px;letter-spacing:1.75px;font-weight:750}.hero .eyebrow{display:inline-flex;gap:7px;align-items:center;border:1px solid #e8def8;background:#f5efff;border-radius:30px;padding:7px 12px;color:#8c6cbd;font-size:9px;letter-spacing:1.3px}.little-spark{font-size:14px;line-height:12px}.hero h1{font-size:46px;font-weight:760;letter-spacing:-2.2px;line-height:1.22;margin:17px 0 16px}.accent-word{color:#8159d7;display:inline-block;position:relative}.accent-word svg{position:absolute;width:100%;height:10px;bottom:-7px;left:0;fill:none;stroke:#b49ae9;stroke-width:3;stroke-linecap:round}.hero>p{font-size:13px;color:#7c7188;margin:0;line-height:1.8}.mode-switch{display:inline-flex;border:1px solid #eae5f0;border-radius:12px;padding:5px;background:#f2eff7;margin:28px auto 0;gap:3px}.mode{display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:0;border-radius:8px;padding:11px 17px;color:#948b9f;font-size:12px;font-weight:600;transition:background .2s,color .2s,box-shadow .2s}.mode .icon{width:17px;height:17px}.mode.active{background:white;color:#7650cb;box-shadow:0 2px 6px #39215d0b}.mode:hover{color:#7650cb}.new-tag{font-size:7px;background:#e7e0f1;color:#9a83b2;padding:3px 5px;border-radius:4px;letter-spacing:.4px}.mode.active .new-tag{background:#f0e9fc;color:#8b60cf}.playground{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:44px;padding:29px 36px 27px 30px;position:relative;margin-top:24px;background:linear-gradient(115deg,#f5f1fd66,#f8f6fc22);border:1px solid #eeebf3;border-radius:22px;min-height:554px}.wheel-column{min-width:0;position:relative;display:flex;flex-direction:column;align-items:center}.wheel-topline{display:flex;width:100%;align-items:center;justify-content:space-between;padding:0 2px 0 6px;position:relative;z-index:2}.ready-badge{font-size:10px;display:flex;align-items:center;gap:7px;color:#9b93a7}.ready-badge>span{width:6px;height:6px;background:#9ac5ae;border-radius:50%;box-shadow:0 0 0 3px #9ac5ae14}.ready-badge.spinning>span{background:#a286e4;animation:blink 1s infinite}.wheel-tools{display:flex;gap:6px}.icon-button{border:0;background:transparent;display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:6px;border-radius:7px;color:#a199ae;transition:background .2s,color .2s}.icon-button:hover:not(:disabled){background:#eee8fa;color:#7752cf}.icon-button .icon{width:16px;height:16px}.wheel-scene{width:100%;display:grid;place-items:center;position:relative;flex:1;min-height:377px;padding-top:5px}.wheel-scene:before{content:'';position:absolute;inset:0 -10px;border-radius:50%;background:radial-gradient(ellipse,#c8b8f31c 0,transparent 68%)}.wheel-frame{width:min(100%,364px);aspect-ratio:1;position:relative;border:8px solid #fff;border-radius:50%;box-shadow:0 9px 27px #68529713,0 0 0 1px #ece6f5;isolation:isolate;background:#fff}.wheel-frame:after{content:'';position:absolute;inset:-3px;border:1px solid #ded4ef66;border-radius:50%;pointer-events:none}.wheel-frame canvas{width:100%;height:100%;border-radius:50%;display:block}.wheel-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:65px;height:65px;border-radius:50%;border:7px solid #ffffff66;background:#fff;background-clip:padding-box;box-shadow:0 3px 12px #492a7233;display:grid;place-items:center;padding:11px;transition:box-shadow .2s}.wheel-hub:hover:not(:disabled){box-shadow:0 0 0 5px #ffffff55,0 3px 12px #492a7233}.wheel-hub svg{width:100%;height:100%;fill:#7956cc}.pointer{position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:30px;height:38px;z-index:3;filter:drop-shadow(0 3px 2px #28243b22)}.pointer:before{content:'';position:absolute;inset:0;background:#393344;clip-path:polygon(12% 0,88% 0,100% 22%,50% 100%,0 22%);border-radius:9px}.pointer span{position:absolute;left:11px;top:7px;width:8px;height:8px;background:#fff;border-radius:50%}.wheel-shadow{position:absolute;bottom:0;width:250px;height:18px;background:#7552a80a;border-radius:50%;filter:blur(5px)}.deco{position:absolute;pointer-events:none}.deco-star.one{font-size:45px;color:#c5b3e9;top:32px;left:9px;transform:rotate(-10deg)}.deco-star.two{font-size:28px;color:#d9c7f5;bottom:48px;right:8px;transform:rotate(12deg)}.deco-dot.three{width:8px;height:8px;background:#b6dbca;top:70px;right:25px;border-radius:50%}.deco-ring.four{width:11px;height:11px;border:2px solid #f3c898;bottom:64px;left:26px;border-radius:50%}.deco-plus.five{font-size:21px;color:#d4c6ed;top:12px;right:87px;transform:rotate(15deg)}.spin-actions{text-align:center;width:100%;padding-top:15px}.primary{color:#fff;background:#7d59d9;border-color:#7d59d9;box-shadow:0 4px 0 #6744c0,0 6px 12px #6c44b516}.primary:hover:not(:disabled){background:#714dcf;box-shadow:0 4px 0 #5c39b3,0 7px 17px #6c44b52b}.primary:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #6744c0}.spin-button{font-size:14px;min-width:251px;min-height:48px;border-radius:11px;gap:12px;position:relative;padding:12px 28px}.spin-arrow{margin-left:15px;width:16px}.spin-actions p{font-size:9px;margin:13px 0 0;color:#8a7b97}kbd{border:1px solid #e3ddeb;border-bottom-width:2px;border-radius:4px;padding:2px 5px;background:#fff;font-family:inherit;font-size:8px;margin-left:2px}.wheel-caption{font-size:9px;color:#8a7b97;display:flex;align-items:center;justify-content:center;text-align:center;min-height:22px;margin-top:6px}.entry-card{border:1px solid #eae6f0;border-radius:16px;background:#fff;box-shadow:0 4px 16px #49396b05;display:flex;flex-direction:column;min-width:0;padding:20px 21px 18px;align-self:stretch}.card-heading{display:flex;align-items:center;justify-content:space-between}.card-heading h2{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;letter-spacing:-.3px;margin:0}.count-badge{color:#8f6ed0;background:#f0e9fc;font-size:10px;padding:3px 7px;border-radius:6px;letter-spacing:0;font-weight:650;min-width:22px;text-align:center}.entry-tools{display:flex;gap:0}.entry-tools .icon-button{width:26px;min-width:26px}.entry-tools .icon{width:14px;height:14px}.card-description{font-size:10px;color:#8b7c96;margin:6px 0 20px}.editor-tabs{display:flex;gap:19px;border-bottom:1px solid #eee9f4;margin:0 0 1px}.editor-tab{background:transparent;border:0;padding:0 3px 12px;color:#a79baf;position:relative;font-size:10px;font-weight:600;display:flex;gap:5px;align-items:center}.editor-tab.active{color:#7954cd}.editor-tab.active:after{content:'';height:2px;position:absolute;bottom:-1px;left:0;right:0;background:#8b65dc;border-radius:4px}.editor-tab span{font-size:8px;padding:2px 5px;background:#f3eff9;color:#a38bba;border-radius:4px}.editor-panel{display:flex;position:relative;flex:1;min-height:258px;margin-top:9px;overflow:hidden}.line-numbers{width:27px;flex-shrink:0;overflow:hidden;position:relative;padding-top:9px;user-select:none}.line-marker{display:flex;align-items:center;gap:7px;height:29px;font-size:9px;color:#bbb1c7}.line-marker i{width:5px;height:5px;border-radius:50%;flex-shrink:0}.line-marker span{min-width:8px;text-align:right}#entries{border:0;resize:none;display:block;flex:1;width:100%;padding:9px 4px 9px 7px;color:#63576f;font-size:12px;line-height:29px;background:transparent;min-height:258px;white-space:pre;overflow-wrap:normal;overflow:auto;scrollbar-width:thin;scrollbar-color:#e1d6f2 transparent;border-radius:5px}#entries::placeholder{color:#c5bbc9}.editor-status{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #f0ecf4;padding:12px 0 13px;color:#8c7d98;font-size:8px;gap:4px}.editor-status>span:first-child{display:flex;align-items:center;gap:5px}.status-dot{width:4px;height:4px;border-radius:50%;background:#9dc5af;display:inline-block}.file-actions{display:flex;gap:8px}.file-actions .button{flex:1;font-size:10px;padding:10px 7px;border-radius:8px;white-space:nowrap}.file-actions .icon{width:14px;height:14px}.subtle{background:#fff;color:#82728f;border-color:#e8e1f0;box-shadow:0 2px 2px #41295f02}.file-actions .subtle:first-child{background:#faf8fd}.recent{display:flex;align-items:center;gap:20px;min-height:72px;padding:15px 36px;border-bottom:1px solid #ede9f2;font-size:10px}.recent-label{display:flex;align-items:center;gap:6px;color:#8a7b98;white-space:nowrap}.history-dot{width:11px;height:11px;border:1px solid #b7a9c7;border-radius:50%;position:relative}.history-dot:after{content:'';position:absolute;width:3px;height:4px;border-left:1px solid #b7a9c7;border-bottom:1px solid #b7a9c7;left:4px;top:1px}.history-items{display:flex;flex-wrap:wrap;gap:7px;align-items:center;flex:1;min-width:0}.history-placeholder{color:#9b8aa9;font-size:9px}.history-chip{font-size:10px;padding:6px 11px;border:1px solid #e9e1f4;background:#f5f0fd;border-radius:7px;color:#9274b4;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;animation:appear .3s ease-out}.history-chip:first-child{background:#ece2ff;color:#8051c4}.text-button{background:none;border:0;padding:5px 0;color:#a392b5;font-size:10px;line-height:1.5}.text-button:hover{color:#7751ca}.how-section{padding:52px 0 39px}.section-heading{text-align:center}.section-heading .eyebrow{font-size:8px;letter-spacing:1.6px;color:#a796bd}.section-heading h2{font-size:24px;letter-spacing:-.9px;margin:11px 0 8px;font-weight:700}.section-heading p{font-size:11px;color:#8a789b;margin:0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:29px 28px 0}.step{display:flex;align-items:flex-start;gap:12px;position:relative;padding:18px 12px}.step-number{border:1px solid #eae2f5;background:#f4eefc;border-radius:11px;display:grid;place-items:center;width:33px;height:33px;color:#aa8acb;font-size:10px;font-weight:600;flex-shrink:0}.step:nth-child(2) .step-number{background:#ecf5f2;color:#80a696;border-color:#dceee6}.step:nth-child(3) .step-number{background:#fff3e9;color:#cca57e;border-color:#f9e7d5}.step h3{font-size:12px;margin:1px 0 7px;font-weight:650}.step p{font-size:9px;line-height:1.8;color:#8d7a9c;margin:0}.step-doodle{position:absolute;right:3px;top:3px;font-size:27px;color:#ddcfee;transform:rotate(-15deg)}svg.step-doodle{width:23px;top:7px;color:#c9e0d5;right:18px}.step:nth-child(3) .step-doodle{color:#efd5b9}.site-footer{border-top:1px solid #ebe5f2;display:flex;align-items:center;gap:21px;color:#9582a1;padding-block:25px;font-size:9px}.footer-brand{font-size:14px;letter-spacing:-.4px;color:#9a86ae;gap:7px}.footer-brand .brand-icon{width:22px;height:23px;border-radius:7px;box-shadow:none;background:#ba9fda}.footer-brand svg{width:16px;height:16px}.site-footer>div{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:8px}.site-footer>div .icon{width:12px;height:12px}.site-footer .text-button{font-size:8px}dialog{border:1px solid #e9dff3;background:#fff;box-shadow:0 20px 100px #32234a33;border-radius:22px;color:#342940;padding:28px;max-width:calc(100% - 32px)}dialog[open]{animation:dialog-in .22s ease-out}dialog::backdrop{background:#2f224a50;backdrop-filter:blur(5px)}.dialog-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.dialog-heading .eyebrow{font-size:8px}.dialog-heading h2{font-size:25px;letter-spacing:-.8px;margin:6px 0 0}.dialog-intro{font-size:12px;color:#a092ad;margin:10px 0 22px}.settings-dialog{width:440px;max-height:90dvh;overflow:auto;padding:26px 28px}.setting{border:0;padding:17px 0;margin:0;border-top:1px solid #f0eaf5}.setting>label,.setting-row label{display:flex;justify-content:space-between;color:#6b5a7c;font-weight:600;font-size:12px;align-items:center}.setting output{font-size:10px;color:#a88bc1;font-weight:400}.setting input[type=range]{width:100%;accent-color:#8057d3;height:4px;margin:20px 0 12px;cursor:pointer}.range-labels{display:flex;justify-content:space-between;font-size:9px;color:#b1a1bc}.setting-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.setting-row p{font-size:9px;color:#aa9ab6;margin:7px 0 0}.switch{appearance:none;width:33px;height:19px;background:#e6dfee;border-radius:20px;position:relative;transition:background .2s;cursor:pointer;flex-shrink:0}.switch:before{content:'';width:13px;height:13px;background:#fff;border-radius:50%;position:absolute;left:3px;top:3px;box-shadow:0 1px 3px #37233f22;transition:transform .2s}.switch:checked{background:#8a63d8}.switch:checked:before{transform:translateX(14px)}.palettes{display:flex;gap:9px;padding-top:12px}.palettes legend{font-size:12px;font-weight:600;color:#6b5a7c;float:left;width:100%;margin-bottom:12px}.palettes:after{content:'';display:block;clear:both}.palettes label{display:flex;flex-direction:column;gap:8px;position:relative;border:1px solid #e9e1f2;border-radius:8px;padding:10px;flex:1;font-size:9px;font-weight:400}.palettes label:has(:checked){border-color:#a07adc;background:#f9f5ff}.palettes input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.palettes label:has(:focus-visible){outline:3px solid #ac93fa;outline-offset:2px}.swatches{display:flex;gap:3px}.swatches i{width:13px;height:13px;border-radius:50%;background:#9974de}.swatches i:nth-child(2){background:#e891bc}.swatches i:nth-child(3){background:#f1c078}.swatches i:nth-child(4){background:#8fc3af}.pastell i{background:#c4a5e9}.pastell i:nth-child(2){background:#eeb7cb}.pastell i:nth-child(3){background:#efd7a6}.pastell i:nth-child(4){background:#b5d6c4}.ozean i{background:#5b85bc}.ozean i:nth-child(2){background:#699bcc}.ozean i:nth-child(3){background:#8bc3cc}.ozean i:nth-child(4){background:#7fb9ad}.reset-settings{display:block;margin:2px auto 17px;font-size:9px}.dialog-done{width:100%;padding:12px;font-size:12px;justify-content:space-between}.winner-dialog{width:430px;text-align:center;padding:38px 32px 30px;overflow:hidden}.winner-close{position:absolute;right:12px;top:12px}.winner-spark{font-size:44px;color:#8b5ed8;background:#f4eafd;border-radius:50%;width:86px;height:86px;display:grid;place-items:center;margin:0 auto 22px;transform:rotate(-9deg)}.winner-dialog .eyebrow{font-size:8px}.winner-dialog h2{font-size:42px;color:#7e52c7;line-height:1.2;letter-spacing:-1.5px;margin:18px 0 10px;overflow-wrap:anywhere}.winner-dialog>p{font-size:11px;color:#a796b3}.winner-buttons{display:flex;flex-direction:column;gap:12px;margin-top:28px}.winner-buttons .button{padding:13px}.small-dialog{width:420px}.small-dialog h2{font-size:21px;line-height:1.4;letter-spacing:-.5px;margin-top:0}.small-dialog p{font-size:12px;line-height:1.9;color:#96849f}.confirm-buttons{display:flex;justify-content:flex-end;gap:10px;margin-top:25px}.result-panel{flex:1;min-height:276px;padding-top:14px;max-height:290px;overflow:auto;scrollbar-width:thin;scrollbar-color:#e1d6f2 transparent}.empty-results{display:flex;align-items:center;justify-content:center;flex-direction:column;height:100%;min-height:240px;text-align:center;color:#b2a2c0}.empty-results>.icon{width:34px;height:34px;stroke-width:1;margin-bottom:18px;color:#c9b6e0}.empty-results strong{font-size:13px;color:#9b83b0;font-weight:500}.empty-results p{font-size:10px;line-height:1.8}.result-group{display:flex;gap:12px;align-items:flex-start;padding:12px 9px;border:1px solid #eee6f5;border-radius:9px;margin-bottom:7px;background:#fcfaff;animation:appear .25s ease-out}.result-group:nth-child(2n){background:#f8fbf9;border-color:#e9f0ec}.result-index{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;color:#a282c1;background:#eee4f9;font-size:9px;flex-shrink:0}.result-group:nth-child(2n) .result-index{background:#e7f1eb;color:#86a692}.result-names{font-size:12px;color:#796387;line-height:1.8;overflow-wrap:anywhere;min-width:0;flex:1}.result-group strong{display:block;font-size:9px;font-weight:600;color:#b09abd;margin-bottom:2px}.result-group small{font-size:9px;color:#ad9aba}.team-control{border-top:1px solid #f0eaf5;display:flex;justify-content:space-between;align-items:center;margin:7px 0;font-size:10px;color:#9985ab;padding-top:5px}.team-control>div{display:flex;gap:5px;align-items:center}.team-control input{width:31px;text-align:center;border:0;color:#7651b3;font-size:11px;background:#f4effa;padding:5px 0;border-radius:5px;appearance:textfield}.team-control input::-webkit-inner-spin-button{appearance:none}.team-control .icon-button{font-size:16px;min-width:24px;height:25px}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);padding:13px 21px;border-radius:11px;background:#3e3054;color:#fff;font-size:12px;z-index:20;box-shadow:0 4px 25px #36244625;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100vw - 32px);text-align:center}.toast.visible{opacity:1;transform:translate(-50%,0)}#confetti-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:9;pointer-events:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.focus-mode .site-header,.focus-mode .hero,.focus-mode .entry-card,.focus-mode .recent,.focus-mode .how-section,.focus-mode .site-footer{display:none}.focus-mode .playground{grid-template-columns:1fr;width:100%;height:100dvh;margin:0;border:0;border-radius:0;padding:20px;max-width:100%}.focus-mode .wheel-column{max-width:1100px;width:100%;margin:auto;height:100%}.focus-mode .wheel-frame{width:min(65dvh,650px)}.focus-mode .wheel-scene{min-height:0;flex:1}.focus-mode .wheel-caption{margin-bottom:10px}.focus-mode .wheel-topline{max-width:900px}.focus-mode .deco-star.one{left:10%;top:15%}.focus-mode .deco-star.two{right:9%}.focus-mode .spin-actions{padding:20px 0 0}.busy .spin-button .icon:first-child{animation:rotate 1.3s linear infinite}.result-ready .wheel-caption{color:#8d6bb6;font-size:11px}#spin-help{min-height:15px}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:.3}}@keyframes appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@keyframes dialog-in{from{opacity:0;transform:translateY(9px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(min-width:1450px){.wrap{width:1220px}.playground{margin-top:29px}.wheel-frame{width:395px}.wheel-scene{min-height:405px}.playground{min-height:584px}.hero{padding-top:48px}.hero h1{font-size:49px}.hero>p{font-size:14px}.card-description{font-size:11px}.entry-card{padding:23px}.editor-panel{min-height:280px}#entries{font-size:13px;line-height:31px}.line-marker{height:31px}.editor-tab{font-size:11px}.card-heading h2{font-size:16px}.editor-status{font-size:9px}.file-actions .button{font-size:11px}.wheel-caption{font-size:10px}.step p{font-size:10px}.step h3{font-size:13px}}
+@media(max-width:1000px){.wrap{width:calc(100% - 48px)}.playground{gap:26px;padding:24px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}.wheel-scene{min-height:345px}.wheel-frame{width:310px}.deco-star.one{left:-5px;top:13px;font-size:35px}.deco-star.two{right:-5px;bottom:30px}.deco-dot.three{right:0}.deco-ring.four{left:0;bottom:38px}.deco-plus.five{right:30px}.entry-card{padding:17px 16px}.editor-status{font-size:7px}.card-description{font-size:9px}.file-actions{gap:6px}.file-actions .button{font-size:9px;padding-inline:5px;gap:4px}.file-actions .icon{width:12px}.hero h1{font-size:40px}.steps{margin-inline:0;gap:10px}.step{padding-inline:7px;gap:9px}.step p br{display:none}.step-doodle{display:none}.site-footer{gap:12px}.site-footer>span{font-size:8px}.site-header nav{gap:24px;margin:0}.recent{padding-inline:20px}.playground{min-height:515px}.spin-button{min-width:220px}.wheel-hub{width:60px;height:60px}.how-section{padding-top:43px}}
+@media(max-width:730px){.wrap{width:calc(100% - 32px)}.site-header{height:79px}.brand{font-size:21px}.brand-icon{width:31px;height:33px;border-radius:10px}.brand-icon svg{width:23px;height:23px}.site-header nav{display:none}.header-settings{font-size:11px;padding:9px 12px;gap:6px}.hero{padding-top:32px}.hero h1{font-size:36px;letter-spacing:-1.6px;max-width:450px;margin:18px auto 16px;line-height:1.26}.hero>p{font-size:11px;max-width:310px;margin:auto;line-height:1.85}.hero .eyebrow{font-size:8px;letter-spacing:1px}.mode-switch{margin-top:22px;padding:4px;gap:1px;max-width:100%}.mode{padding:10px 12px;font-size:10px;gap:6px}.mode .icon{width:15px;height:15px}.new-tag{display:none}.playground{grid-template-columns:1fr;gap:24px;margin-top:22px;padding:16px 17px 20px;background:linear-gradient(150deg,#f5f1fd99,#faf8fc);border-radius:17px}.wheel-column{max-width:500px;width:100%;margin:auto}.wheel-topline{padding:0}.ready-badge{font-size:9px}.wheel-tools .icon-button{width:28px;min-width:28px}.wheel-scene{min-height:346px;padding-top:10px}.wheel-frame{width:min(100% - 24px,320px);border-width:7px}.wheel-hub{width:59px;height:59px}.deco-star.one{top:24px;left:0;font-size:32px}.deco-star.two{right:-3px;bottom:23px;font-size:22px}.deco-dot.three{top:67px;right:0;width:6px;height:6px}.deco-ring.four{bottom:35px;width:8px;height:8px;left:3px}.deco-plus.five{display:none}.spin-actions{padding-top:12px}.spin-button{min-width:243px;font-size:13px;min-height:46px}.spin-actions p{font-size:8px;margin-top:12px}.wheel-caption{font-size:9px;margin-top:4px}.entry-card{padding:19px 18px 16px;min-height:438px;max-width:500px;width:100%;justify-self:center}.card-heading h2{font-size:14px}.card-description{font-size:10px;margin:8px 0 20px}.editor-tabs{gap:20px}.editor-tab{font-size:11px}.editor-panel{min-height:245px;max-height:300px}#entries{font-size:13px;min-height:245px;line-height:29px}.line-marker{height:29px}.line-numbers{width:28px}.file-actions .button{font-size:11px;padding:11px 7px;gap:7px}.file-actions .icon{width:15px;height:15px}.editor-status{font-size:8px;padding-block:13px}.recent{gap:12px;padding:16px 6px;align-items:flex-start;flex-wrap:wrap}.recent-label{padding-top:5px;font-size:9px}.history-placeholder{font-size:8px;line-height:2.2}.history-chip{font-size:9px;padding:5px 9px}.recent .text-button{margin-left:auto}.how-section{padding:37px 0 28px}.section-heading h2{font-size:23px}.section-heading p{font-size:10px}.steps{grid-template-columns:1fr;margin:23px 12px 0;gap:0}.step{gap:16px;padding:18px 5px;border-bottom:1px solid #f0eaf5}.step:last-child{border-bottom:0}.step-number{width:35px;height:35px}.step h3{font-size:13px}.step p{font-size:10px}.step p br{display:block}.step-doodle{display:block;right:15px;top:17px}svg.step-doodle{right:18px;top:23px}.site-footer{padding-block:21px;flex-wrap:wrap;justify-content:space-between;gap:16px}.site-footer>span{display:none}.site-footer>div{margin:0;order:3;width:100%;justify-content:center;font-size:8px}.footer-brand{font-size:14px}.site-footer .text-button{font-size:9px}.focus-mode .wheel-frame{width:min(85vw,64dvh)}.focus-mode .wheel-scene{min-height:0}.result-panel{max-height:300px;min-height:250px}.settings-dialog{padding:25px}.winner-dialog{padding:35px 25px 25px}.winner-dialog h2{font-size:34px}.hero h1 .accent-word svg{height:8px;bottom:-6px}}
+@media(max-width:370px){.wrap{width:calc(100% - 24px)}.hero h1{font-size:31px}.mode{padding-inline:8px}.playground{padding-inline:12px}.wheel-scene{min-height:310px}.wheel-frame{width:min(100% - 24px,280px)}.entry-card{padding-inline:14px}.brand{font-size:19px}.header-settings{font-size:10px}.hero>p{font-size:10px}.file-actions .button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+/* The line gutter is independent of the document's length. */
+.editor-panel{height:278px;max-height:340px;min-height:258px}.line-numbers{position:absolute;left:0;top:0;bottom:0;width:27px}.editor-panel textarea{margin-left:27px;width:calc(100% - 27px)}
+@media(max-width:730px){.editor-panel{height:258px;max-height:300px;min-height:245px}}
+</style>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6L12 2Z"/></symbol>
+    <symbol id="i-wheel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 3v7m0 4v7M3 12h7m4 0h7M5.6 5.6l5 5m2.8 2.8 5 5m0-12.8-5 5m-2.8 2.8-5 5"/></symbol>
+    <symbol id="i-pair" viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><path d="M2 21v-3a6 6 0 0 1 12 0v3m2-17a3 3 0 0 1 0 6m1 4a5 5 0 0 1 5 5v2"/></symbol>
+    <symbol id="i-teams" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3M4 5a3 3 0 0 0 0 6m-3 9v-3a5 5 0 0 1 3-4M20 5a3 3 0 0 1 0 6m3 9v-3a5 5 0 0 0-3-4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="9" cy="18" r="2"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 4-3 6-6s4-6 6-6h3m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 8a9 9 0 1 0 1 7M20 3v5h-5"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5V4Zm4 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5V4Zm5 5 6 6m0-6-6 6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 4v3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.5 4.5a5 5 0 0 0-7 0L12 6l-1.5-1.5a5 5 0 0 0-7 7L12 20l8.5-8.5a5 5 0 0 0 0-7Z"/></symbol>
+  </defs></svg>
+
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="Glücksrad Startseite"><span class="brand-icon"><svg><use href="#i-spark"/></svg></span><span>Glücksrad<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Hauptnavigation"><a class="nav-link active" href="#dein-rad">Dein Rad</a><a class="nav-link" href="#so-gehts">So funktioniert’s</a></nav>
+    <button class="button header-settings" id="open-settings"><svg class="icon"><use href="#i-settings"/></svg><span>Einstellungen</span></button>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="dein-rad">
+      <div class="eyebrow"><span class="little-spark">✦</span> EIN DREH. ALLES IST MÖGLICH.</div>
+      <h1>Lass den <span class="accent-word">Zufall<svg viewBox="0 0 220 12" aria-hidden="true"><path d="M3 8Q100-4 217 6"/></svg></span> entscheiden.</h1>
+      <p>Namen auslosen, Paare finden, Teams bilden. Ein Rad. Unendlich viele Möglichkeiten.</p>
+      <div class="mode-switch" role="tablist" aria-label="Spielmodus">
+        <button class="mode active" id="mode-standard" data-mode="standard" role="tab" aria-selected="true"><svg class="icon"><use href="#i-wheel"/></svg>Standard</button>
+        <button class="mode" id="mode-pairs" data-mode="pairs" role="tab" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-pair"/></svg>Paare bilden</button>
+        <button class="mode" id="mode-teams" data-mode="teams" role="tab" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-teams"/></svg>Teams bilden<span class="new-tag">NEU</span></button>
+      </div>
+    </section>
+
+    <section class="playground wrap" aria-label="Glücksrad und Einträge">
+      <div class="wheel-column" id="wheel-area">
+        <div class="wheel-topline"><span class="ready-badge" id="ready-badge"><span></span> Bereit, wenn du es bist</span><div class="wheel-tools"><button class="icon-button" id="toggle-sound" aria-label="Ton ausschalten" aria-pressed="true" title="Ton ausschalten"><svg class="icon"><use href="#i-sound"/></svg></button><button class="icon-button" id="fullscreen" aria-label="Fokusansicht öffnen" aria-pressed="false" title="Fokusansicht"><svg class="icon"><use href="#i-expand"/></svg></button></div></div>
+        <div class="wheel-scene">
+          <span class="deco deco-star one" aria-hidden="true">✧</span><span class="deco deco-star two" aria-hidden="true">✦</span><span class="deco deco-dot three" aria-hidden="true"></span><span class="deco deco-ring four" aria-hidden="true"></span><span class="deco deco-plus five" aria-hidden="true">+</span>
+          <div class="wheel-shadow"></div>
+          <div class="wheel-frame">
+            <div class="pointer" aria-hidden="true"><span></span></div>
+            <canvas id="wheel" width="1100" height="1100" role="img" aria-label="Glücksrad mit acht gleich großen Feldern"></canvas>
+            <button class="wheel-hub" id="hub-spin" aria-label="Glücksrad drehen"><svg><use href="#i-spark"/></svg></button>
+          </div>
+        </div>
+        <div class="spin-actions"><button class="button primary spin-button" id="spin"><svg class="icon"><use href="#i-rotate"/></svg><span id="spin-label">Rad drehen</span><svg class="icon spin-arrow"><use href="#i-arrow"/></svg></button><p id="spin-help">Oder drücke die <kbd>Leertaste</kbd></p></div>
+        <div class="wheel-caption" id="wheel-caption" aria-live="polite">Jeder Eintrag hat die gleiche Chance. Viel Glück!</div>
+      </div>
+
+      <aside class="entry-card" aria-label="Liste bearbeiten">
+        <div class="card-heading"><h2>Deine Einträge <span class="count-badge" id="entry-count">8</span></h2><div class="entry-tools"><button class="icon-button" id="shuffle" title="Liste mischen" aria-label="Liste mischen"><svg class="icon"><use href="#i-shuffle"/></svg></button><button class="icon-button" id="clear" title="Liste leeren" aria-label="Liste leeren"><svg class="icon"><use href="#i-trash"/></svg></button></div></div>
+        <p class="card-description" id="editor-description">Eine Zeile, ein Eintrag. Dein Rad, deine Regeln.</p>
+        <div class="editor-tabs" role="tablist" aria-label="Listenansicht"><button class="editor-tab active" role="tab" id="tab-entries" aria-controls="entries-panel" aria-selected="true">Einträge<span id="tab-count">8</span></button><button class="editor-tab" role="tab" id="tab-results" aria-controls="results-panel" aria-selected="false" tabindex="-1" hidden>Ergebnisse<span id="results-count">0</span></button></div>
+        <div class="editor-panel" id="entries-panel" role="tabpanel" aria-labelledby="tab-entries"><div class="line-numbers" id="line-numbers" aria-hidden="true"></div><label class="sr-only" for="entries">Einträge, ein Eintrag pro Zeile</label><textarea id="entries" spellcheck="false" placeholder="Emma&#10;Noah&#10;Mia&#10;…" aria-describedby="editor-description"></textarea></div>
+        <div class="result-panel" id="results-panel" role="tabpanel" aria-labelledby="tab-results" hidden><div class="empty-results"><svg class="icon"><use href="#i-pair"/></svg><strong>Der Zufall ist am Zug.</strong><p>Trage Namen ein und starte die Auslosung.<br>Hier findest du danach dein Ergebnis.</p></div></div>
+        <div class="team-control" id="team-control" hidden><label for="team-number">Anzahl der Teams</label><div><button id="teams-minus" class="icon-button" aria-label="Weniger Teams">−</button><input id="team-number" type="number" min="2" max="50" value="2" aria-label="Anzahl der Teams"><button id="teams-plus" class="icon-button" aria-label="Mehr Teams">+</button></div></div>
+        <div class="editor-status"><span id="save-status"><span class="status-dot"></span>Automatisch gespeichert</span><span id="line-count">8 Einträge</span></div>
+        <div class="file-actions"><button class="button subtle" id="save-list"><svg class="icon"><use href="#i-download"/></svg><span>Liste speichern</span></button><button class="button subtle" id="load-list"><svg class="icon"><use href="#i-upload"/></svg>Liste laden</button></div>
+        <input type="file" id="file-input" accept=".txt,text/plain" hidden>
+      </aside>
+    </section>
+
+    <section class="recent wrap" aria-label="Letzte Ergebnisse"><div class="recent-label"><span class="history-dot"></span> Zuletzt gezogen</div><div class="history-items" id="history"><span class="history-placeholder">Dein nächster Glücksmoment wartet schon.</span></div><button class="text-button" id="clear-history" hidden>Verlauf leeren</button></section>
+    <section class="how-section wrap" id="so-gehts"><div class="section-heading"><span class="eyebrow">SO EINFACH GEHT’S</span><h2>Weniger grübeln. Mehr drehen.</h2><p>Für kleine Entscheidungen und große Glücksmomente.</p></div><div class="steps"><article class="step"><span class="step-number">01</span><div><h3>Liste rein.</h3><p>Schreib deine Namen oder Ideen ins Feld.<br>Jede Zeile wird zu einem Feld auf dem Rad.</p></div><span class="step-doodle" aria-hidden="true">≋</span></article><article class="step"><span class="step-number">02</span><div><h3>Modus wählen.</h3><p>Eine Person auslosen, Paare zusammenbringen<br>oder zufällige Teams zusammenstellen.</p></div><svg class="icon step-doodle" aria-hidden="true"><use href="#i-shuffle"/></svg></article><article class="step"><span class="step-number">03</span><div><h3>Glück anstoßen.</h3><p>Ein Klick, ein bisschen Spannung.<br>Der Zufall kümmert sich um den Rest.</p></div><span class="step-doodle" aria-hidden="true">✧</span></article></div></section>
+  </main>
+  <footer class="site-footer wrap"><a class="brand footer-brand" href="./"><span class="brand-icon"><svg><use href="#i-spark"/></svg></span><span>Glücksrad.</span></a><span>Für alles, was der Zufall besser entscheidet.</span><div><svg class="icon"><use href="#i-lock"/></svg>Deine Listen bleiben in deinem Browser.</div><button class="text-button" id="open-privacy">Datenschutz</button></footer>
+
+  <dialog id="settings-dialog" class="settings-dialog"><form method="dialog"><div class="dialog-heading"><div><span class="eyebrow">GANZ DEIN DREH</span><h2>Einstellungen</h2></div><button class="icon-button" aria-label="Einstellungen schließen"><svg class="icon"><use href="#i-close"/></svg></button></div></form><p class="dialog-intro">Mach das Rad zu deinem Rad.</p><div class="setting"><label for="duration">Drehdauer <output id="duration-value">6 Sekunden</output></label><input id="duration" type="range" min="3" max="15" value="6"><div class="range-labels"><span>Kurz & knackig</span><span>Mehr Spannung</span></div></div><div class="setting"><label for="speed">Geschwindigkeit <output id="speed-value">Normal</output></label><input id="speed" type="range" min="1" max="5" value="3"><div class="range-labels"><span>Gemütlich</span><span>Rasant</span></div></div><div class="setting setting-row"><div><label for="sound">Soundeffekte</label><p>Ein leises Ticken und ein großer Moment.</p></div><input class="switch" type="checkbox" id="sound" checked></div><div class="setting setting-row"><div><label for="confetti">Konfetti</label><p>Ein bisschen Feiern gehört dazu.</p></div><input class="switch" type="checkbox" id="confetti" checked></div><div class="setting setting-row"><div><label for="remove-winner">Gewinner entfernen</label><p>Gezogene Einträge automatisch herausnehmen.</p></div><input class="switch" type="checkbox" id="remove-winner"></div><fieldset class="setting palettes"><legend>Die Farben des Zufalls</legend><label><input type="radio" name="palette" value="konfetti" checked><span class="swatches"><i></i><i></i><i></i><i></i></span><span>Konfetti</span></label><label><input type="radio" name="palette" value="pastell"><span class="swatches pastell"><i></i><i></i><i></i><i></i></span><span>Pastell</span></label><label><input type="radio" name="palette" value="ozean"><span class="swatches ozean"><i></i><i></i><i></i><i></i></span><span>Ozean</span></label></fieldset><button class="text-button reset-settings" id="reset-settings">Einstellungen zurücksetzen</button><button class="button primary dialog-done" id="settings-done">Alles klar <svg class="icon"><use href="#i-check"/></svg></button></dialog>
+
+  <dialog id="winner-dialog" class="winner-dialog"><button class="icon-button winner-close" id="close-winner" aria-label="Ergebnis schließen"><svg class="icon"><use href="#i-close"/></svg></button><div class="winner-spark" aria-hidden="true">✦</div><span class="eyebrow">DER ZUFALL HAT ENTSCHIEDEN</span><h2 id="winner-name"></h2><p>Das Rad hat dich ausgewählt. Glückwunsch!</p><div class="winner-buttons"><button class="button primary" id="spin-again"><svg class="icon"><use href="#i-rotate"/></svg>Nochmal drehen</button><button class="button subtle" id="remove-entry"><svg class="icon"><use href="#i-trash"/></svg>Eintrag entfernen</button></div></dialog>
+  <dialog id="confirm-dialog" class="small-dialog"><h2>Liste wirklich leeren?</h2><p>Deine aktuellen Einträge werden entfernt. Speichere sie vorher, wenn du sie später wieder brauchst.</p><div class="confirm-buttons"><button class="button subtle" id="cancel-clear">Abbrechen</button><button class="button primary" id="confirm-clear">Liste leeren</button></div></dialog>
+  <dialog id="privacy-dialog" class="small-dialog"><div class="dialog-heading"><h2>Deine Daten bleiben bei dir.</h2><button class="icon-button" id="close-privacy" aria-label="Datenschutz schließen"><svg class="icon"><use href="#i-close"/></svg></button></div><p>Deine Listen, der Verlauf und deine Einstellungen werden nur lokal in diesem Browser gespeichert. Du kannst sie über die entsprechenden Schaltflächen löschen.</p><p>Textdateien werden direkt im Browser gelesen und erstellt. Die App sendet deine Einträge nicht an einen Server und verwendet keine Analyse- oder Werbedienste.</p><p>Beim Öffnen der Seite erhält der Hosting-Anbieter technisch notwendige Verbindungsdaten, zum Beispiel deine IP-Adresse. Externe Schriftarten oder andere externe Inhalte lädt die App nicht.</p></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div><canvas id="confetti-canvas" aria-hidden="true"></canvas>
+  <script>/* Pure selection and grouping logic, shared by the app and its checks. */
+(function (root) {
+  'use strict';
+  const TAU = Math.PI * 2;
+  function parseEntries(text) { return text.replace(/^\uFEFF/, '').split(/\r\n|\r|\n/).map(s => s.trim()).filter(Boolean); }
+  function randomInt(max) {
+    if (!Number.isSafeInteger(max) || max < 1 || max > 0x100000000) throw new RangeError('Ungültige Anzahl');
+    const limit = Math.floor(0x100000000 / max) * max;
+    const value = new Uint32Array(1);
+    do { globalThis.crypto.getRandomValues(value); } while (value[0] >= limit);
+    return value[0] % max;
+  }
+  function shuffled(entries, random = randomInt) {
+    const copy = [...entries];
+    for (let i = copy.length - 1; i > 0; i--) { const j = random(i + 1); [copy[i], copy[j]] = [copy[j], copy[i]]; }
+    return copy;
+  }
+  function makePairs(entries, random = randomInt) {
+    const items = shuffled(entries, random);
+    const pairs = [];
+    for (let i = 0; i < items.length; i += 2) pairs.push(items.slice(i, i + 2));
+    return pairs;
+  }
+  function makeTeams(entries, count, random = randomInt) {
+    const groups = Array.from({ length: Math.min(Math.max(2, Math.floor(count)), entries.length) }, () => []);
+    if (!groups.length) return groups;
+    shuffled(entries, random).forEach((name, i) => groups[i % groups.length].push(name));
+    return groups;
+  }
+  function mod(n, divisor) { return ((n % divisor) + divisor) % divisor; }
+  function targetRotation(current, index, count, turns, landing = 0.5) {
+    const target = -(index + landing) * TAU / count;
+    return current + turns * TAU + mod(target - current, TAU);
+  }
+  function indexAtPointer(rotation, count) { return Math.floor(mod(-rotation, TAU) / (TAU / count)) % count; }
+  const api = { parseEntries, randomInt, shuffled, makePairs, makeTeams, targetRotation, indexAtPointer, mod, TAU };
+  root.WheelCore = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(typeof window === 'undefined' ? globalThis : window);
+</script><script>(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const C = window.WheelCore;
+  const storageKey = 'gluecksrad.v1';
+  const defaults = { duration: 6, speed: 3, sound: true, confetti: true, removeWinner: false, palette: 'konfetti' };
+  const initialText = 'Emma\nNoah\nMia\nLeon\nHannah\nBen\nLina\nPaul';
+  const palettes = {
+    konfetti: ['#aa85df', '#8b69ce', '#c485bd', '#e99fae', '#efba83', '#edd28d', '#9cc7b3', '#93b5d5'],
+    pastell: ['#c8ace7', '#b4a5df', '#d5b0d4', '#edb6c8', '#edc9ae', '#e5d5a4', '#b5d4bf', '#b1c8df'],
+    ozean: ['#6384b5', '#6d9bcb', '#8cb6d3', '#98c6d0', '#9cd3c9', '#7bb8ad', '#729ca8', '#7d95bc']
+  };
+  let settings = { ...defaults }, mode = 'standard', history = [], text = initialText;
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (saved && typeof saved === 'object') {
+      if (typeof saved.text === 'string') text = saved.text;
+      if (['standard', 'pairs', 'teams'].includes(saved.mode)) mode = saved.mode;
+      if (Array.isArray(saved.history)) history = saved.history.filter(x => typeof x === 'string').slice(0, 8);
+      if (saved.settings && typeof saved.settings === 'object') {
+        const s = saved.settings;
+        if (Number.isFinite(s.duration)) settings.duration = Math.max(3, Math.min(15, s.duration));
+        if (Number.isFinite(s.speed)) settings.speed = Math.max(1, Math.min(5, s.speed));
+        for (const name of ['sound', 'confetti', 'removeWinner']) if (typeof s[name] === 'boolean') settings[name] = s[name];
+        if (Object.hasOwn(palettes, s.palette)) settings.palette = s.palette;
+      }
+    }
+  } catch (_) { /* Local storage may be unavailable in private contexts. */ }
+  let entries = C.parseEntries(text), busy = false, rotation = 0, resultGroups = [], resultMode = null;
+  let selectedIndex = null, selectedName = '', removed = false, toastTimer, saveTimer, animationId;
+  let audio = null, lastTick = 0, reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = $('wheel'), ctx = canvas.getContext('2d');
+  $('entries').value = text;
+
+  function toast(message) {
+    $('toast').textContent = message;
+    $('toast').classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 3500);
+  }
+  function persist() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ text: $('entries').value, settings, history, mode }));
+      $('save-status').replaceChildren();
+      const dot = document.createElement('span'); dot.className = 'status-dot';
+      $('save-status').append(dot, 'Automatisch gespeichert');
+    } catch (_) { $('save-status').textContent = 'Nur in dieser Sitzung · bitte Liste speichern'; }
+  }
+  function colorAt(index) { return palettes[settings.palette][index % 8]; }
+  function drawWheel() {
+    const size = canvas.width, center = size / 2, radius = center - 1;
+    ctx.clearRect(0, 0, size, size);
+    ctx.save(); ctx.translate(center, center); ctx.rotate(rotation);
+    const count = entries.length || 8, slice = C.TAU / count;
+    for (let i = 0; i < count; i++) {
+      const start = -Math.PI / 2 + i * slice;
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, radius, start, start + slice); ctx.closePath();
+      ctx.fillStyle = entries.length ? colorAt(i) : (i % 2 ? '#e7dff3' : '#eee7f7'); ctx.fill();
+      if (count <= 150) { ctx.strokeStyle = '#ffffff55'; ctx.lineWidth = 2.1; ctx.stroke(); }
+      if (entries.length && count <= 90) {
+        ctx.save(); ctx.rotate(start + slice / 2);
+        const fontSize = Math.min(43, Math.max(11, 210 / Math.sqrt(count)));
+        ctx.font = `600 ${fontSize}px Inter, "Segoe UI", sans-serif`;
+        const dark = settings.palette !== 'konfetti' || i % 8 !== 1;
+        ctx.fillStyle = dark ? '#3e2e50' : '#fff';
+        ctx.textBaseline = 'middle';
+        let label = entries[i], maxWidth = radius * .63;
+        if (ctx.measureText(label).width > maxWidth) {
+          while (label.length && ctx.measureText(label + '…').width > maxWidth) label = label.slice(0, -1);
+          label += '…';
+        }
+        ctx.textAlign = 'right'; ctx.fillText(label, radius * .89, 0); ctx.restore();
+      }
+    }
+    ctx.restore();
+    if (!entries.length) {
+      ctx.font = '500 32px Inter, sans-serif';ctx.fillStyle = '#ad9cbe';ctx.textAlign = 'center';
+      ctx.fillText('Deine Ideen fehlen noch', center, center + 145);
+    }
+  }
+  function lineMarkers() {
+    const lines = $('entries').value.split(/\r\n|\r|\n/), fragment = document.createDocumentFragment();
+    let colorIndex = 0;
+    // Only mounted lines need markers; the textarea keeps the complete original text.
+    const first = Math.max(0, Math.floor($('entries').scrollTop / lineHeight()) - 2);
+    const last = Math.min(lines.length, first + 60);
+    $('line-numbers').replaceChildren();
+    const spacer = document.createElement('div'); spacer.style.height = `${first * lineHeight()}px`;fragment.append(spacer);
+    colorIndex = lines.slice(0, first).filter(x => x.trim()).length;
+    for (let index = first; index < last; index++) {
+      const row = document.createElement('div');row.className = 'line-marker';
+      const num = document.createElement('span');num.textContent = String(index + 1);
+      const dot = document.createElement('i');
+      dot.style.background = lines[index].trim() ? colorAt(colorIndex++) : 'transparent';
+      row.append(num, dot);fragment.append(row);
+    }
+    $('line-numbers').append(fragment);
+    $('line-numbers').scrollTop = $('entries').scrollTop;
+  }
+  function lineHeight() { return parseFloat(getComputedStyle($('entries')).lineHeight); }
+  function invalidateResults() {
+    resultGroups = [];resultMode = null;renderResults();showEditorTab('entries');
+    document.body.classList.remove('result-ready');
+    $('wheel-caption').textContent = mode === 'standard' ? 'Jeder Eintrag hat die gleiche Chance. Viel Glück!' : 'Zufällig gemischt. Fair aufgeteilt. Los geht’s!';
+  }
+  function updateEntries(invalidate = true) {
+    entries = C.parseEntries($('entries').value);
+    $('entry-count').textContent = entries.length;
+    $('tab-count').textContent = entries.length;
+    $('line-count').textContent = `${entries.length} ${entries.length === 1 ? 'Eintrag' : 'Einträge'}`;
+    canvas.setAttribute('aria-label', `Glücksrad mit ${entries.length} gleich großen Feldern. ${entries.length < 25 ? entries.join(', ') : ''}`);
+    lineMarkers();drawWheel();if (invalidate) invalidateResults();updateControls();
+  }
+  function updateControls() {
+    const min = mode === 'standard' ? 1 : 2;
+    $('spin').disabled = busy || entries.length < min;
+    $('hub-spin').disabled = busy || entries.length < min;
+    $('spin-again').disabled = busy || entries.length < min;
+    $('entries').readOnly = busy;
+    for (const id of ['shuffle', 'clear', 'load-list', 'open-settings', 'team-number', 'teams-minus', 'teams-plus']) $(id).disabled = busy;
+    document.querySelectorAll('.mode').forEach(el => el.disabled = busy);
+    $('save-list').disabled = showResults ? !resultGroups.length : !entries.length;
+    $('clear').disabled = busy || !entries.length;
+    $('shuffle').disabled = busy || entries.length < 2;
+    $('spin-label').textContent = busy ? 'Der Zufall entscheidet …' : ({standard:'Rad drehen',pairs:'Paare auslosen',teams:'Teams auslosen'})[mode];
+    $('spin-help').replaceChildren();
+    if (entries.length < min) $('spin-help').textContent = `Trage mindestens ${min === 1 ? 'einen Eintrag' : 'zwei Einträge'} ein.`;
+    else { $('spin-help').append('Oder drücke die ');const k = document.createElement('kbd');k.textContent='Leertaste';$('spin-help').append(k); }
+    $('ready-badge').classList.toggle('spinning', busy);
+    $('ready-badge').replaceChildren();const dot = document.createElement('span');
+    $('ready-badge').append(dot, busy ? ' Ein bisschen Spannung …' : ' Bereit, wenn du es bist');
+    document.body.classList.toggle('busy',busy);
+  }
+  let showResults = false;
+  function showEditorTab(tab) {
+    showResults = tab === 'results' && mode !== 'standard';
+    for (const [id, active] of [['entries',!showResults],['results',showResults]]) {
+      const button = $(`tab-${id}`); button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;
+      $(`${id}-panel`).hidden=!active;
+    }
+    $('save-list').querySelector('span').textContent = showResults ? 'Ergebnis speichern' : 'Liste speichern';
+    updateControls();
+  }
+  function setMode(next) {
+    if (busy) return;
+    mode = next;
+    document.querySelectorAll('.mode').forEach(el => {
+      const active = el.dataset.mode === mode;el.classList.toggle('active',active);el.setAttribute('aria-selected',String(active));el.tabIndex=active?0:-1;
+    });
+    $('tab-results').hidden = mode === 'standard';
+    $('team-control').hidden = mode !== 'teams';
+    $('editor-description').textContent = {standard:'Eine Zeile, ein Eintrag. Dein Rad, deine Regeln.',pairs:'Eine Zeile, ein Name. Wer gehört wohl zusammen?',teams:'Eine Zeile, ein Name. Gemeinsam wird’s noch besser.'}[mode];
+    invalidateResults();updateControls();persist();
+  }
+  function renderHistory() {
+    $('history').replaceChildren();
+    if (!history.length) { const p=document.createElement('span');p.className='history-placeholder';p.textContent='Dein nächster Glücksmoment wartet schon.';$('history').append(p); }
+    history.forEach(name=>{const chip=document.createElement('span');chip.className='history-chip';chip.textContent=name;chip.title=name;$('history').append(chip);});
+    $('clear-history').hidden=!history.length;
+  }
+  function renderResults() {
+    $('results-count').textContent = resultGroups.length;
+    const panel = $('results-panel');panel.replaceChildren();
+    if (!resultGroups.length) {
+      const empty=document.createElement('div');empty.className='empty-results';
+      const spark=document.createElement('span');spark.textContent='✧';spark.style.cssText='font-size:40px;margin-bottom:18px;color:#c9b6e0';
+      const title=document.createElement('strong');title.textContent='Der Zufall ist am Zug.';
+      const hint=document.createElement('p');hint.textContent='Trage Namen ein und starte die Auslosung. Hier findest du danach dein Ergebnis.';
+      empty.append(spark,title,hint);panel.append(empty);return;
+    }
+    resultGroups.forEach((names,i)=>{
+      const group=document.createElement('div');group.className='result-group';
+      const index=document.createElement('span');index.className='result-index';index.textContent=String(i+1).padStart(2,'0');
+      const content=document.createElement('div');content.className='result-names';
+      if (resultMode==='teams') {const heading=document.createElement('strong');heading.textContent=`TEAM ${i+1} · ${names.length} ${names.length===1?'PERSON':'PERSONEN'}`;content.append(heading);}
+      if (resultMode==='pairs' && names.length===1) {const heading=document.createElement('strong');heading.textContent='DIESMAL OHNE PARTNER';content.append(heading);}
+      content.append(names.join(resultMode==='pairs'?' ＋ ':' · '));
+      group.append(index,content);panel.append(group);
+    });
+    const copy=document.createElement('button');copy.className='text-button';copy.textContent='Ergebnisse kopieren';copy.style.cssText='display:block;margin:12px auto';copy.addEventListener('click',copyResults);panel.append(copy);
+  }
+  function resultText() {
+    return resultGroups.map((names,i)=>resultMode==='teams'?`Team ${i+1}: ${names.join(', ')}`:names.length===1?`Ohne Partner: ${names[0]}`:`${names[0]} - ${names[1]}`).join('\n');
+  }
+  async function copyResults() {
+    try { await navigator.clipboard.writeText(resultText());toast('Ergebnisse kopiert.'); }
+    catch (_) {toast('Kopieren ist hier nicht verfügbar. Speichere das Ergebnis als Textdatei.');}
+  }
+  function initAudio() {
+    if (!settings.sound) return;
+    try {audio ||= new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});}catch(_){audio=null;}
+  }
+  function tone(frequency,duration=.035,gain=.035,delay=0,type='sine') {
+    if (!settings.sound||!audio||audio.state!=='running')return;
+    try { const start=audio.currentTime+delay,osc=audio.createOscillator(),amp=audio.createGain();osc.type=type;osc.frequency.setValueAtTime(frequency,start);amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(gain,start+.005);amp.gain.exponentialRampToValueAtTime(.0001,start+duration);osc.connect(amp);amp.connect(audio.destination);osc.start(start);osc.stop(start+duration+.01);osc.onended=()=>{osc.disconnect();amp.disconnect();}; }catch(_){}
+  }
+  function winSound() { [523.25,659.25,783.99,1046.5].forEach((f,i)=>tone(f,.28,.055,i*.095)); }
+  function spin() {
+    if (busy||entries.length<(mode==='standard'?1:2)||$('settings-dialog').open)return;
+    initAudio();busy=true;selectedIndex=C.randomInt(entries.length);selectedName=entries[selectedIndex];removed=false;
+    const snapshot=[...entries];
+    const groups=mode==='pairs'?C.makePairs(snapshot):mode==='teams'?C.makeTeams(snapshot,teamCount()):[];
+    const current=rotation,turns=4+settings.speed*2;
+    const target=C.targetRotation(current,selectedIndex,entries.length,turns,.22+C.randomInt(5600)/10000);
+    const duration=(reducedMotion?.4:settings.duration)*1000,start=performance.now();
+    let lastSector=-1;lastTick=0;updateControls();document.body.classList.remove('result-ready');
+    $('wheel-caption').textContent=mode==='standard'?'Wer wird es wohl?':'Der Zufall bringt euch zusammen …';
+    function frame(now) {
+      const progress=Math.min((now-start)/duration,1), eased=1-Math.pow(1-progress,4);
+      rotation=current+(target-current)*eased;drawWheel();
+      const sector=Math.floor(rotation/(C.TAU/entries.length));
+      if(sector!==lastSector&&now-lastTick>55&&progress<.985){tone(680,.022,.025,0,'triangle');lastTick=now;lastSector=sector;}
+      if(progress<1)animationId=requestAnimationFrame(frame);
+      else {rotation=C.mod(target,C.TAU);drawWheel();finish(groups);}
+    }
+    animationId=requestAnimationFrame(frame);
+  }
+  function finish(groups) {
+    busy=false;updateControls();winSound();
+    if(mode==='standard') {
+      history.unshift(selectedName);history=history.slice(0,8);renderHistory();
+      $('winner-name').textContent=selectedName;
+      $('wheel-caption').textContent=`Ausgewählt: ${selectedName}`;
+      if(settings.removeWinner) removeSelected(false);
+      $('remove-entry').hidden=removed;
+      $('winner-dialog').showModal();
+    } else {
+      resultGroups=groups;resultMode=mode;renderResults();showEditorTab('results');
+      const odd=mode==='pairs'&&entries.length%2===1;
+      $('wheel-caption').textContent=mode==='pairs'?`${Math.floor(entries.length/2)} ${Math.floor(entries.length/2)===1?'Paar ist':'Paare sind'} bereit.${odd?' Eine Person bleibt diesmal ohne Partner.':''}`:`${groups.length} Teams sind bereit. Auf geht’s!`;
+      if(document.body.classList.contains('focus-mode'))toggleFocus(false);
+      if(innerWidth<731)$('entry-count').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'start'});
+      toast(mode==='pairs'?'Deine Paare sind ausgelost!':'Deine Teams sind ausgelost!');
+    }
+    document.body.classList.add('result-ready');
+    if(settings.confetti&&!reducedMotion)celebrate();
+    persist();
+  }
+  function removeSelected(notify=true) {
+    if(removed||selectedIndex===null)return;
+    const items=[...entries];
+    if(items[selectedIndex]!==selectedName)return;
+    items.splice(selectedIndex,1);$('entries').value=items.join('\n');removed=true;
+    updateEntries(false);$('remove-entry').hidden=true;persist();
+    if(notify)toast('Eintrag entfernt. Die nächste Runde kann kommen.');
+  }
+  function teamCount() {
+    let count=Number($('team-number').value);
+    count=Number.isFinite(count)?Math.max(2,Math.min(50,Math.floor(count))):2;
+    $('team-number').value=count;return count;
+  }
+  function download(text,filename) {
+    const blob=new Blob(['\uFEFF'+text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+  }
+  function syncSettings() {
+    $('duration').value=settings.duration;$('duration-value').textContent=`${settings.duration} Sekunden`;
+    $('speed').value=settings.speed;$('speed-value').textContent=['Sehr gemütlich','Gemütlich','Normal','Schnell','Rasant'][settings.speed-1];
+    $('sound').checked=settings.sound;$('confetti').checked=settings.confetti;$('remove-winner').checked=settings.removeWinner;
+    document.querySelectorAll('[name=palette]').forEach(el=>el.checked=el.value===settings.palette);
+    const label=settings.sound?'Ton ausschalten':'Ton einschalten';
+    $('toggle-sound').setAttribute('aria-label',label);$('toggle-sound').title=label;$('toggle-sound').setAttribute('aria-pressed',String(settings.sound));
+    $('toggle-sound').querySelector('use').setAttribute('href',settings.sound?'#i-sound':'#i-muted');
+  }
+  function toggleFocus(force) {
+    const active=typeof force==='boolean'?force:!document.body.classList.contains('focus-mode');
+    document.body.classList.toggle('focus-mode',active);$('fullscreen').setAttribute('aria-pressed',String(active));
+    $('fullscreen').setAttribute('aria-label',active?'Fokusansicht verlassen':'Fokusansicht öffnen');
+    $('fullscreen').title=active?'Fokusansicht verlassen':'Fokusansicht';
+  }
+  function celebrate() {
+    const confetti=$('confetti-canvas'),context=confetti.getContext('2d');
+    const width=innerWidth,height=innerHeight;confetti.width=width*devicePixelRatio;confetti.height=height*devicePixelRatio;context.scale(devicePixelRatio,devicePixelRatio);
+    const pieces=Array.from({length:95},()=>({x:width*.5,y:height*.4,vx:(Math.random()-.5)*14,vy:-Math.random()*11-2,spin:Math.random()*C.TAU,color:colorAt(Math.floor(Math.random()*8)),size:4+Math.random()*5}));
+    const start=performance.now();let last=start;
+    function animate(now){const dt=Math.min((now-last)/16.7,3);last=now;context.clearRect(0,0,width,height);for(const p of pieces){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=.14*dt;p.spin+=.05*dt;context.save();context.translate(p.x,p.y);context.rotate(p.spin);context.fillStyle=p.color;context.globalAlpha=Math.max(0,1-(now-start)/3200);context.fillRect(-p.size/2,-p.size/2,p.size,p.size*.55);context.restore();}if(now-start<3200)requestAnimationFrame(animate);else context.clearRect(0,0,width,height);}
+    requestAnimationFrame(animate);
+  }
+  $('entries').addEventListener('input',()=>{rotation=0;updateEntries();clearTimeout(saveTimer);saveTimer=setTimeout(persist,250);});
+  $('entries').addEventListener('scroll',lineMarkers);
+  window.addEventListener('resize',lineMarkers);
+  $('spin').addEventListener('click',spin);$('hub-spin').addEventListener('click',spin);
+  document.querySelectorAll('.mode').forEach(el=>el.addEventListener('click',()=>setMode(el.dataset.mode)));
+  $('tab-entries').addEventListener('click',()=>showEditorTab('entries'));
+  $('tab-results').addEventListener('click',()=>showEditorTab('results'));
+  // Both segmented controls implement the tab keyboard pattern.
+  document.querySelectorAll('[role=tablist]').forEach(list=>list.addEventListener('keydown',event=>{
+    const buttons=[...list.querySelectorAll('[role=tab]')].filter(el=>!el.hidden&&!el.disabled);
+    let index=buttons.indexOf(document.activeElement);if(index<0)return;
+    if(event.key==='ArrowRight')index=(index+1)%buttons.length;else if(event.key==='ArrowLeft')index=(index-1+buttons.length)%buttons.length;else if(event.key==='Home')index=0;else if(event.key==='End')index=buttons.length-1;else return;
+    event.preventDefault();buttons[index].click();buttons[index].focus();
+  }));
+  $('shuffle').addEventListener('click',()=>{$('entries').value=C.shuffled(entries).join('\n');rotation=0;updateEntries();persist();toast('Einmal gut durchgemischt.');});
+  $('clear').addEventListener('click',()=>$('confirm-dialog').showModal());
+  $('cancel-clear').addEventListener('click',()=>$('confirm-dialog').close());
+  $('confirm-clear').addEventListener('click',()=>{$('confirm-dialog').close();$('entries').value='';rotation=0;updateEntries();persist();$('entries').focus();toast('Platz für neue Ideen.');});
+  $('save-list').addEventListener('click',()=>{download(showResults?resultText():$('entries').value,showResults?`gluecksrad-${resultMode==='pairs'?'paare':'teams'}.txt`:'gluecksrad-liste.txt');toast(showResults?'Ergebnis als Textdatei gespeichert.':'Liste als Textdatei gespeichert.');});
+  $('load-list').addEventListener('click',()=>$('file-input').click());
+  $('file-input').addEventListener('change',async event=>{
+    const file=event.target.files[0];if(!file)return;
+    if(file.size>1024*1024){toast('Bitte wähle eine Textdatei mit höchstens 1 MB.');event.target.value='';return;}
+    try {const content=await file.text();if(content.includes('\u0000'))throw new Error('binary');if(busy){toast('Bitte lade die Liste nach der Drehung erneut.');return;}$('entries').value=content.replace(/^\uFEFF/,'').replace(/\r\n|\r/g,'\n');rotation=0;updateEntries();persist();toast(`${entries.length} ${entries.length===1?'Eintrag geladen':'Einträge geladen'}.`);}catch(_){toast('Die Datei konnte nicht gelesen werden. Bitte wähle eine UTF-8-Textdatei.');}finally{event.target.value='';}
+  });
+  $('clear-history').addEventListener('click',()=>{history=[];renderHistory();persist();toast('Verlauf geleert.');});
+  $('open-settings').addEventListener('click',()=>$('settings-dialog').showModal());
+  $('settings-done').addEventListener('click',()=>$('settings-dialog').close());
+  $('duration').addEventListener('input',e=>{settings.duration=Number(e.target.value);syncSettings();persist();});
+  $('speed').addEventListener('input',e=>{settings.speed=Number(e.target.value);syncSettings();persist();});
+  for(const [id,key] of [['sound','sound'],['confetti','confetti'],['remove-winner','removeWinner']])$(id).addEventListener('change',e=>{settings[key]=e.target.checked;syncSettings();persist();});
+  document.querySelectorAll('[name=palette]').forEach(el=>el.addEventListener('change',()=>{settings.palette=el.value;drawWheel();lineMarkers();persist();}));
+  $('reset-settings').addEventListener('click',()=>{settings={...defaults};syncSettings();drawWheel();lineMarkers();persist();toast('Zurück auf Anfang. Einstellungen zurückgesetzt.');});
+  $('toggle-sound').addEventListener('click',()=>{settings.sound=!settings.sound;syncSettings();persist();if(settings.sound){initAudio();tone(700,.09,.03);}toast(settings.sound?'Ton ist an.':'Ton ist aus.');});
+  $('fullscreen').addEventListener('click',()=>toggleFocus());
+  $('close-winner').addEventListener('click',()=>$('winner-dialog').close());
+  $('spin-again').addEventListener('click',()=>{$('winner-dialog').close();spin();});
+  $('remove-entry').addEventListener('click',()=>removeSelected());
+  $('open-privacy').addEventListener('click',()=>$('privacy-dialog').showModal());
+  $('close-privacy').addEventListener('click',()=>$('privacy-dialog').close());
+  $('team-number').addEventListener('change',()=>{teamCount();invalidateResults();});
+  $('teams-minus').addEventListener('click',()=>{$('team-number').value=teamCount()-1;teamCount();invalidateResults();});
+  $('teams-plus').addEventListener('click',()=>{$('team-number').value=teamCount()+1;teamCount();invalidateResults();});
+  document.addEventListener('keydown',e=>{
+    const editing=e.target.closest?.('textarea,input,button,a,select,[contenteditable]');
+    if(e.code==='Space'&&!editing&&!document.querySelector('dialog[open]')){e.preventDefault();if(!e.repeat)spin();}
+    if(e.key==='Escape'&&document.body.classList.contains('focus-mode'))toggleFocus(false);
+  });
+  document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const rect=dialog.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)dialog.close();}));
+  window.addEventListener('pagehide',persist);
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist();});
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{reducedMotion=e.matches;});
+  syncSettings();updateEntries(false);setMode(mode);renderHistory();
+})();
+</script>
+</body>
+</html>
